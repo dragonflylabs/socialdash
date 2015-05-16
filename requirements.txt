@@ -2,5 +2,8 @@ django
 Pillow
 django-suit
 django-boto
+<<<<<<< HEAD
+django-storages
+boto
 django-storages
 boto
