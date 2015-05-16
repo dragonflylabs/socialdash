@@ -31,21 +31,22 @@ def register_user(request):
         password_confirm = data.get('password2', None)
         if email and password and password_confirm:
             if password.strip() == password_confirm.strip():
-                if User.objects.filter(email=email).count():
+                if User.objects.filter(username=email).count():
                     return JsonResponse(R(status=400, message='El usuario ya existe').get_object())
                 else:
                     user = User()
                     user.email = email
+                    user.username = email
                     user.set_password(password)
                     user.save()
                     return JsonResponse(R(status=200, message='El usuario fue creado con éxito').get_object())
             else:
                 return JsonResponse(R(status=400, message='Las contraseñas no coinciden').get_object())
         else:
-            return JsonResponse(R(status=200, message='Campos obligatorios').get_object())
+            return JsonResponse(R(status=400, message='Campos obligatorios').get_object())
     except Exception as e:
         traceback.print_exc(e)
-        return JsonResponse(R(status=200, message=e.message).get_object())
+        return JsonResponse(R(status=500, message=e.message).get_object())
         pass
 
 @csrf_exempt
