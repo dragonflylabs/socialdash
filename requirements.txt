@@ -1,6 +1,5 @@
 django
 Pillow
-psycopg2
 django-suit
 django-boto
 django-storages
