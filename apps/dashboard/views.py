@@ -20,7 +20,7 @@ class LoginView(View):
     def get(self, request):
         return render_to_response('dashboard/template_account.html', context_instance=RequestContext(request))
 
-
+@csrf_exempt
 @require_POST
 def register_user(request):
     data = json.loads(request.body)
@@ -43,8 +43,8 @@ def register_user(request):
         else:
             return JsonResponse(json.loads({'status': 400, 'msg': 'Los campos son obligatorios'}))
     except Exception as e:
+        return JsonResponse(json.loads({'status': 400, 'msg': e.message}))
         pass
-    return JsonResponse(data)
 
 @csrf_exempt
 @require_POST
