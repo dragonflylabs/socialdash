@@ -105,28 +105,8 @@ SUIT_CONFIG = {
     'ADMIN_NAME': 'Dashboard Administration',
 }
 
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '../media/').replace('\\','/'))
 STATIC_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '../static/').replace('\\','/'))
-
-STATIC_URL = '/static/'
-
-
-AWS_ACCESS_KEY_ID = "AKIAJD6FCQLGEHTWFY4Q"
-AWS_SECRET_ACCESS_KEY = "uDXDdgf2hFbJYedfXCUBF2pWQbJf281UL9pfkrov"
-AWS_STORAGE_BUCKET_NAME = 'socialdash'
-BOTO_S3_BUCKET = "socialdash"
-AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
-    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-    'Cache-Control': 'max-age=94608000',
-}
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'socialdash.dashboard_storages.StaticStorage'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-
-MEDIAFILES_LOCATION = 'media'
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-DEFAULT_FILE_STORAGE = 'socialdash.dashboard_storages.MediaStorage'
