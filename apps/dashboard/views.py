@@ -1,15 +1,16 @@
 #-*- coding: utf-8 -*-
 import json
+import traceback
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, render_to_response
-
 # Create your views here.
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.views.generic import View
+from models import *
 
 
 class LoginView(View):
@@ -31,19 +32,20 @@ def register_user(request):
         if email and password and password_confirm:
             if password.strip() == password_confirm.strip():
                 if User.objects.filter(email=email).count():
-                    return JsonResponse(json.loads({'status': 400, 'msg': 'El usuario ya existe'}))
+                    return JsonResponse(R(status=400, message='El usuario ya existe').get_object())
                 else:
                     user = User()
                     user.email = email
                     user.set_password(password)
                     user.save()
-                    return JsonResponse(json.loads({'status': 200, 'msg': 'El usuario fue creado con éxito'}))
+                    return JsonResponse(R(status=200, message='El usuario fue creado con éxito').get_object())
             else:
-                return JsonResponse(json.loads({'status': 400, 'msg': 'Las contraseñas no coinciden'}))
+                return JsonResponse(R(status=400, message='Las contraseñas no coinciden').get_object())
         else:
-            return JsonResponse(json.loads({'status': 400, 'msg': 'Los campos son obligatorios'}))
+            return JsonResponse(R(status=200, message='Campos obligatorios').get_object())
     except Exception as e:
-        return JsonResponse(json.loads({'status': 400, 'msg': e.message}))
+        traceback.print_exc(e)
+        return JsonResponse(R(status=200, message=e.message).get_object())
         pass
 
 @csrf_exempt
