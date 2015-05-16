@@ -1,5 +1,4 @@
 django
-Pillow
 django-suit
 django-boto
 django-storages
