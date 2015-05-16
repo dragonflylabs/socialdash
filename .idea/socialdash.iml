@@ -20,6 +20,7 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/env/lib/python2.7/site-packages/django/contrib/gis/templates" />
+        <option value="$MODULE_DIR$/apps/dashboard/templates" />
       </list>
     </option>
   </component>
