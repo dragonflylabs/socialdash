@@ -3,3 +3,7 @@ Pillow
 django-suit
 django-boto
 django-storages
+<<<<<<< HEAD
+boto
+=======
+>>>>>>> 7c72bdd9b34e33cf50d4c8f79176af3af271daaf
