@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from apps.dashboard.views import RegisterView, LoginView
 
-urlpatterns = patterns('apps.gastalon_core.views',
-    url(r'^$','home')
+urlpatterns = patterns('apps.dashboard.views',
+    url(r'^$', 'home'),
+    url(r'^login/$', LoginView.as_view()),
 )
