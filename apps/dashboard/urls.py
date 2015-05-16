@@ -4,4 +4,5 @@ from apps.dashboard.views import LoginView
 urlpatterns = patterns('apps.dashboard.views',
     url(r'^$', 'home'),
     url(r'^login/$', LoginView.as_view()),
+    url(r'register_user', 'register_user')
 )
