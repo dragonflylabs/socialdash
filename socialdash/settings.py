@@ -106,8 +106,8 @@ SUIT_CONFIG = {
 }
 
 
-AWS_ACCESS_KEY_ID = "AKIAIQZF4WGN5WA47I6A"
-AWS_SECRET_ACCESS_KEY = "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"
+AWS_ACCESS_KEY_ID = "AKIAJD6FCQLGEHTWFY4Q"
+AWS_SECRET_ACCESS_KEY = "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"
 AWS_STORAGE_BUCKET_NAME = 'socialdash'
 BOTO_S3_BUCKET = "socialdash"
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
