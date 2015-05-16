@@ -46,6 +46,7 @@ def register_user(request):
         pass
     return JsonResponse(data)
 
+@csrf_exempt
 @require_POST
 def login_user(request):
     data = json.loads(request.body)
