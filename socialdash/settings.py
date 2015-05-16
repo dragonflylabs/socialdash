@@ -105,6 +105,11 @@ SUIT_CONFIG = {
     'ADMIN_NAME': 'Dashboard Administration',
 }
 
+MEDIA_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '../media/').replace('\\','/'))
+STATIC_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '../static/').replace('\\','/'))
+
+STATIC_URL = '/static/'
+
 
 AWS_ACCESS_KEY_ID = "AKIAJD6FCQLGEHTWFY4Q"
 AWS_SECRET_ACCESS_KEY = "uDXDdgf2hFbJYedfXCUBF2pWQbJf281UL9pfkrov"
