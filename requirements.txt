@@ -4,5 +4,3 @@ django-suit
 django-boto
 django-storages
 boto
-django-storages
-boto
